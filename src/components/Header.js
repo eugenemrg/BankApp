@@ -2,8 +2,8 @@ import React from 'react'
 
 function Header() {
     return (
-        <div>
-            <h1>Bank of Union App</h1>
+        <div id='header'>
+            <h1>Bank App</h1>
             <nav>
             </nav>
         </div>
