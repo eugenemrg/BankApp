@@ -1,8 +1,11 @@
 import React from 'react'
+import TransactionListTableHeader from './TransactionListTableHeader'
 
 function TransactionListTable() {
   return (
-    <div>TransactionListTable</div>
+    <table>
+      <TransactionListTableHeader />
+    </table>
   )
 }
 
