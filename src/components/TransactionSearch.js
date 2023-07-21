@@ -2,7 +2,12 @@ import React from 'react'
 
 function TransactionSearch() {
   return (
-    <div>TransactionSearch</div>
+    <div className='search-container'>
+        <form>
+            <input type='text' placeholder='Enter text to search' required />
+            <button>search</button>
+        </form>
+    </div>
   )
 }
 
