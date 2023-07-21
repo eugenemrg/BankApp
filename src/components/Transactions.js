@@ -1,12 +1,12 @@
 import React from 'react'
 import TransactionSearch from './TransactionSearch'
-import TransactionList from './TransactionList'
+import TransactionListTable from './TransactionListTable'
 
 function Transactions() {
     return (
         <>
             <TransactionSearch />
-            <TransactionList />
+            <TransactionListTable />
         </>
     )
 }
