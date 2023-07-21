@@ -2,7 +2,7 @@ import React from 'react'
 
 function Form() {
     return (
-        <div>
+        <div id='form'>
             <div className='transaction-form-title-container'>
                 <p className='transaction-form-title'>Add a transaction</p>
                 <i className='transaction-form-title-logo'></i>
