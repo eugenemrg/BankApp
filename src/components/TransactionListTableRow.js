@@ -1,6 +1,11 @@
 import React from 'react'
 
-function TransactionListTableRow({date, description, category, amount}) {
+function TransactionListTableRow({date, description, category, amount, handleDelete, id}) {
+
+  function handleButtonClick() {
+    handleDelete(id)
+  }
+
   return (
     <tr>
         <td>{date}</td>
@@ -8,7 +13,7 @@ function TransactionListTableRow({date, description, category, amount}) {
         <td>{category}</td>
         <td>{amount}</td>
         <td>
-            <button>Delete</button>
+            <button onClick={handleButtonClick}>Delete</button>
         </td>
     </tr>
   )
