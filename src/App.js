@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <Header navItems={headerNavigationItems} />
       <Form />
-      <Transactions />
+      <Transactions transactions={transactionsData} />
     </div>
   );
 }
