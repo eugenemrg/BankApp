@@ -5,8 +5,14 @@ import TransactionListTableRow from './TransactionListTableRow'
 
 function TransactionListTable({transactions, handleDelete}) {
 
-  const transactionsArray = transactions.map( (transaction) => {
-    return <TransactionListTableRow key={transaction.id} date={transaction.date} description={transaction.description} category={transaction.category} amount={transaction.amount} handleDelete={handleDelete} id={transaction.id}/>
+  const transactionsArray = transactions.map((transaction) => {
+    return (
+      <TransactionListTableRow key={transaction.id} date={transaction.date} description={transaction.description} category={transaction.category} amount={transaction.amount} >
+        <td>
+            <button onClick={() => handleDelete(transaction.id)}>Delete</button>
+        </td>
+      </TransactionListTableRow>
+    )
   })
 
   return (
