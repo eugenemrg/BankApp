@@ -4,14 +4,17 @@ function Form() {
 
     const [isVisible, setVisible] = useState(false)
     const [hideStatus, setHideStatus] = useState('hide')
+    const [icon, setIcon] = useState('fa-solid fa-chevron-down fa-rotate-270')
 
     function handleFormToggle() {
         if(isVisible){
             setVisible(isVisible => !isVisible)
             setHideStatus(hideStatus => hideStatus = 'hide')
+            setIcon('fa-solid fa-chevron-down fa-rotate-270')
         }else{
             setVisible(isVisible => !isVisible)
             setHideStatus(hideStatus => hideStatus = 'show')
+            setIcon('fa-solid fa-chevron-down')
         }
     }
 
@@ -19,7 +22,7 @@ function Form() {
         <div id='form'>
             <div className='transaction-form-title-container' onClick={handleFormToggle}>
                 <p className='transaction-form-title'>Add a transaction</p>
-                <i className='transaction-form-title-logo'></i>
+                <i class={icon}></i>
             </div>
             <form id='transaction-form' className={hideStatus}>
                 <input type='date' name='date' id='date' className='form-item'/>
