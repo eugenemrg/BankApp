@@ -1,9 +1,9 @@
 import React from 'react'
 
-function TransactionListTableBody() {
+function TransactionListTableBody(props) {
   return (
     <tbody>
-        TransactionListTableBody
+        {props.children}
     </tbody>
   )
 }
