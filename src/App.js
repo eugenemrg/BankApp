@@ -21,11 +21,17 @@ function App() {
     })
   }, [])
 
+  function handleTransactionDelete(transactionId) {
+    setTransactionsData([...transactionsData].filter(item => {
+      return (item.id !== transactionId)
+    }))
+  }
+
   return (
     <div className="App">
       <Header navItems={headerNavigationItems} />
       <Form categories={categories} />
-      <Transactions transactions={transactionsData} />
+      <Transactions transactions={transactionsData} handleDelete={handleTransactionDelete}/>
     </div>
   );
 }
