@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 
-function Form() {
+function Form({categories}) {
 
     const [isVisible, setVisible] = useState(false)
     const [hideStatus, setHideStatus] = useState('hide')
     const [icon, setIcon] = useState('fa-solid fa-chevron-down fa-rotate-270')
+
+    const options = categories.map( (category) => {
+        return <option key={category} value={category}>{category}</option>
+    })
 
     function handleFormToggle() {
         if(isVisible){
@@ -32,6 +36,7 @@ function Form() {
                 <label htmlFor='category'>Transaction Category</label>
                 <select name='category' className='form-item' required>
                     <option value='none'>Category</option>
+                    {options}
                 </select>
                 <label htmlFor='amount'>Transaction Amount</label>
                 <input type='number' name='amount' placeholder='Enter amount' className='form-item' required/>
