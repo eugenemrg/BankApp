@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Form() {
+
+    const [isVisible, setVisible] = useState(false)
+    const [hideStatus, setHideStatus] = useState('hide')
+
+    function handleFormToggle() {
+        if(isVisible){
+            setVisible(isVisible => !isVisible)
+            setHideStatus(hideStatus => hideStatus = 'hide')
+        }else{
+            setVisible(isVisible => !isVisible)
+            setHideStatus(hideStatus => hideStatus = 'show')
+        }
+    }
+
     return (
         <div id='form'>
-            <div className='transaction-form-title-container'>
+            <div className='transaction-form-title-container' onClick={handleFormToggle}>
                 <p className='transaction-form-title'>Add a transaction</p>
                 <i className='transaction-form-title-logo'></i>
             </div>
-            <form id='transaction-form'>
+            <form id='transaction-form' className={hideStatus}>
                 <input type='date' name='date' id='date' className='form-item'/>
                 <textarea rows='4' placeholder='Add a description for the transaction' name='description' className='form-item'/>
                 <select name='category' className='form-item'>
