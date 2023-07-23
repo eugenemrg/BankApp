@@ -6,7 +6,7 @@ function Form({categories, addNewTransaction}) {
     const [hideStatus, setHideStatus] = useState('hide')
     const [icon, setIcon] = useState('fa-solid fa-chevron-down fa-rotate-270')
     const [formData, setFormData] = useState({
-        date: new Date(new Date()).toISOString().split('T')[0],
+        date: '',
         description: '',
         category: '',
         amount: ''
