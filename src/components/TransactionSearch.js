@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function TransactionSearch({ handleSearch, showSearchLoadingIcon }) {
 
   const [query, setQuery] = useState('')
 
+  useEffect(() => {
+    handleSearch(query)
+  }, [query])
+
   return (
     <div className='search-container' id='search'>
       <p id='search-title'>Transaction History</p>
-      <form id='search-form'>
+      <form id='search-form' onSubmit={() => handleSearch(query)}>
         <label htmlFor='search'>Search for transactions</label>
         <div id='search-input-container'>
           <input id='search-form-input' name='search' type='text' placeholder='Enter text to search' value={query} onChange={(e) => setQuery(e.target.value)} />
