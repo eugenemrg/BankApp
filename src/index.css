@@ -177,6 +177,10 @@ th {
   border-bottom: 1px solid gray;
 }
 
+th i{
+  vertical-align: middle;
+}
+
 tr {
   border-bottom: 1px solid lightgray;
 }
