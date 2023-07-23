@@ -54,9 +54,7 @@ function App() {
     })
     .then(data => {
       setTransactionsData([...transactionsDataPrimary, data])
-      setTransactionsDataPrimary(transactionArray => {
-        return [...transactionArray, data]
-      })
+      setTransactionsDataPrimary([...transactionsDataPrimary, data])
     })
     .catch(error => {
       console.error('Error:', error);
