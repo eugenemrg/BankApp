@@ -10,6 +10,7 @@ function App() {
   const [transactionsData, setTransactionsData] = useState([])
   const [transactionsDataPrimary, setTransactionsDataPrimary] = useState([])
   const [showSearchLoadingIcon, setShowSearchLoadingIcon] = useState(false)
+  const [searchText, setSearchText] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3007/transactions')
@@ -28,11 +29,18 @@ function App() {
     const updatedTransactionsData = [...transactionsDataPrimary].filter(item => {
       return (item.id !== transactionId)
     })
-    setTransactionsData(updatedTransactionsData)
+    if(searchText !== ''){
+      setTransactionsData([...updatedTransactionsData].filter(item => {
+        return (item.description.toLowerCase().includes(searchText.toLowerCase()))
+      }))
+    }else{
+      setTransactionsData(updatedTransactionsData)
+    }
     setTransactionsDataPrimary(updatedTransactionsData)
   }
 
   function handleSearch(searchQuery) {
+    setSearchText(searchQuery)
     setShowSearchLoadingIcon(true)
     setTransactionsData([...transactionsDataPrimary].filter(item => {
       return (item.description.toLowerCase().includes(searchQuery.toLowerCase()))
