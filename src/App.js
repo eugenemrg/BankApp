@@ -40,10 +40,32 @@ function App() {
     setShowSearchLoadingIcon(false)
   }
 
+  function handleAddNewTransaction(transaction){
+    fetch('http://localhost:3007/transactions', 
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(transaction)
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      setTransactionsDataPrimary(transactionArray => {
+        return [...transactionArray, data]
+      })
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <div className="App">
       <Header navItems={headerNavigationItems} />
-      <Form categories={categories} />
+      <Form categories={categories} addNewTransaction={handleAddNewTransaction} />
       <Transactions transactions={transactionsData} handleSearch={handleSearch} handleDelete={handleTransactionDelete} showSearchLoadingIcon={showSearchLoadingIcon} />
     </div>
   );
