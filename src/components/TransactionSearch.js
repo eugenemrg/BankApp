@@ -15,7 +15,7 @@ function TransactionSearch({ handleSearch, showSearchLoadingIcon }) {
         <label htmlFor='search'>Search for transactions</label>
         <div id='search-input-container'>
           <input id='search-form-input' name='search' type='text' placeholder='Enter text to search' value={query} onChange={(e) => setQuery(e.target.value)} />
-          <button id='search-form-submit'>{showSearchLoadingIcon ? <i class="fa-solid fa-circle-notch fa-spin"></i> : <i class="fa-solid fa-magnifying-glass"></i>}</button>
+          <button id='search-form-submit'>{showSearchLoadingIcon ? <i className="fa-solid fa-circle-notch fa-spin"></i> : <i className="fa-solid fa-magnifying-glass"></i>}</button>
         </div>
       </form>
     </div>
