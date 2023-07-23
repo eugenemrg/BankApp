@@ -1,12 +1,12 @@
 import React from 'react'
 
-function TransactionListTableHeader() {
+function TransactionListTableHeader({handleSort}) {
     return (
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Description</th>
-                <th>Category</th>
+                <th onClick={ (e) => handleSort('description')}>Description <i className="fa-solid fa-angle-down"></i></th>
+                <th onClick={ (e) => handleSort('category')}>Category <i className="fa-solid fa-angle-down"></i></th>
                 <th>Amount</th>
                 <th></th>
             </tr>

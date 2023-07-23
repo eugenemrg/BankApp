@@ -40,6 +40,15 @@ function App() {
     setShowSearchLoadingIcon(false)
   }
 
+  function handleSort(sortBy) {
+    const updated = [...transactionsData].sort( (a, b) => {
+      if (a[sortBy] < b[sortBy]) return -1
+      if (a[sortBy] > b[sortBy]) return 1
+      return 0
+    })
+    setTransactionsData(updated)
+  }
+
   function handleAddNewTransaction(transaction){
     fetch('http://localhost:3007/transactions', 
     {
@@ -65,7 +74,7 @@ function App() {
     <div className="App">
       <Header navItems={headerNavigationItems} />
       <Form categories={categories} addNewTransaction={handleAddNewTransaction} />
-      <Transactions transactions={transactionsData} handleSearch={handleSearch} handleDelete={handleTransactionDelete} showSearchLoadingIcon={showSearchLoadingIcon} />
+      <Transactions transactions={transactionsData} handleSearch={handleSearch} handleSort={handleSort} handleDelete={handleTransactionDelete} showSearchLoadingIcon={showSearchLoadingIcon} />
     </div>
   );
 }

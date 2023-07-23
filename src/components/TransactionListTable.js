@@ -3,7 +3,7 @@ import TransactionListTableHeader from './TransactionListTableHeader'
 import TransactionListTableBody from './TransactionListTableBody'
 import TransactionListTableRow from './TransactionListTableRow'
 
-function TransactionListTable({transactions, handleDelete}) {
+function TransactionListTable({transactions, handleSort, handleDelete}) {
 
   const transactionsArray = transactions.map((transaction) => {
     return (
@@ -17,7 +17,7 @@ function TransactionListTable({transactions, handleDelete}) {
 
   return (
     <table id='transactions'>
-      <TransactionListTableHeader />
+      <TransactionListTableHeader handleSort={handleSort}/>
       <TransactionListTableBody>
         {transactionsArray}
       </TransactionListTableBody>
