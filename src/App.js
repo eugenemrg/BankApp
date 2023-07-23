@@ -8,6 +8,7 @@ import categories from './data/categories';
 function App() {
 
   const [transactionsData, setTransactionsData] = useState([])
+  const [showSearchLoadingIcon, setShowSearchLoadingIcon] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3007/transactions')
@@ -27,11 +28,19 @@ function App() {
     }))
   }
 
+  function handleSearch(searchQuery) {
+    setShowSearchLoadingIcon(true)
+    setTransactionsData([...transactionsData].filter(item => {
+      return (item.description.toLowerCase().includes(searchQuery.toLowerCase()))
+    }))
+    setShowSearchLoadingIcon(false)
+  }
+
   return (
     <div className="App">
       <Header navItems={headerNavigationItems} />
       <Form categories={categories} />
-      <Transactions transactions={transactionsData} handleDelete={handleTransactionDelete}/>
+      <Transactions transactions={transactionsData} handleSearch={handleSearch} handleDelete={handleTransactionDelete} showSearchLoadingIcon={showSearchLoadingIcon} />
     </div>
   );
 }
