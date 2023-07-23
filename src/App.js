@@ -53,6 +53,7 @@ function App() {
       return response.json()
     })
     .then(data => {
+      setTransactionsData([...transactionsDataPrimary, data])
       setTransactionsDataPrimary(transactionArray => {
         return [...transactionArray, data]
       })
