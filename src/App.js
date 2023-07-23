@@ -8,6 +8,7 @@ import categories from './data/categories';
 function App() {
 
   const [transactionsData, setTransactionsData] = useState([])
+  const [transactionsDataPrimary, setTransactionsDataPrimary] = useState([])
   const [showSearchLoadingIcon, setShowSearchLoadingIcon] = useState(false)
 
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
     .then(data => {
       console.log(data);
       setTransactionsData(data)
+      setTransactionsDataPrimary(data)
     })
     .catch(err => {
       console.log(err)
@@ -23,14 +25,16 @@ function App() {
   }, [])
 
   function handleTransactionDelete(transactionId) {
-    setTransactionsData([...transactionsData].filter(item => {
+    const updatedTransactionsData = [...transactionsDataPrimary].filter(item => {
       return (item.id !== transactionId)
-    }))
+    })
+    setTransactionsData(updatedTransactionsData)
+    setTransactionsDataPrimary(updatedTransactionsData)
   }
 
   function handleSearch(searchQuery) {
     setShowSearchLoadingIcon(true)
-    setTransactionsData([...transactionsData].filter(item => {
+    setTransactionsData([...transactionsDataPrimary].filter(item => {
       return (item.description.toLowerCase().includes(searchQuery.toLowerCase()))
     }))
     setShowSearchLoadingIcon(false)
