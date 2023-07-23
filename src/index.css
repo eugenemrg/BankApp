@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
 #root{
@@ -71,9 +72,6 @@ nav{
 }
 
 .transaction-form-title-container{
-  /* font-size: 1.2em; */
-  /* color: gray; */
-  /* font-weight: bold; */
   padding: 12px 6px;
   display: flex;
   flex-direction: row;
@@ -116,21 +114,33 @@ input[type="submit"], button{
   text-align: center;
   font-weight: bold;
   padding: 12px;
-  margin: 24px;
+  margin: 24px 12px 4px 12px;
 }
 
 #search-form{
   margin-bottom: 24px;
   width: 100%;
+}
+
+#search-form label{
+  display: inline-block;
+  color: black;
+  padding: 8px 12px;
+  text-align: start;
+}
+
+#search-input-container{
+  border: 1px solid lightgray;
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  border-radius: 4px;
 }
 
 #search-form-input, #search-form-submit{
   padding: 12px;
-  border: 1px solid lightgray;
+  border: 0px;
   border-radius: 4px;
+  outline: none;
 }
 
 #search-form-input{
@@ -140,6 +150,8 @@ input[type="submit"], button{
 #search-form-submit{
   border: 0px;
   text-transform: capitalize;
+  background: none;
+  color: black
 }
 
 table{
