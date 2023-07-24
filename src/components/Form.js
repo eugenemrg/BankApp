@@ -38,6 +38,13 @@ function Form({categories, addNewTransaction}) {
     function handleSubmit(e) {
         e.preventDefault()
         addNewTransaction(formData)
+        setFormData({
+            date: '',
+            description: '',
+            category: '',
+            amount: ''
+        })
+        handleFormToggle()
     }
 
     return (
