@@ -16,7 +16,6 @@ function App() {
     fetch('http://localhost:3007/transactions')
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       setTransactionsData(data)
       setTransactionsDataPrimary(data)
     })
